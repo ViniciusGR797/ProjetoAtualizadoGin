@@ -1,0 +1,14 @@
+{
+    "srv_port": "8081",
+    "web_ui": true,
+    "open_browser": false,
+    "mode": "production",
+    "dbconfig": {
+        "db_drive": "mysql",
+        "db_host": "localhost",
+        "db_port": "3306",
+        "db_user": "root",
+        "db_pass": "groupd",
+        "db_name": "group_d"
+    } 
+}
