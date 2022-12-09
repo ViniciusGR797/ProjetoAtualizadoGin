@@ -1,15 +1,15 @@
 package main
 
 import (
-	"api-produto/config"
-	"api-produto/database"
-	"api-produto/routes"
-	"api-produto/server"
-	"api-produto/service"
-	"api-produto/webui"
 	"encoding/json"
 	"log"
 	"os"
+	"product/config"
+	"product/database"
+	"product/routes"
+	"product/server"
+	"product/service"
+	"product/webui"
 )
 
 func main() {

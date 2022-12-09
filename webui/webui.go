@@ -1,9 +1,10 @@
 package webui
 
 import (
-	"api-produto/entity"
 	"encoding/json"
 	"net/http"
+
+	"github.com/ViniciusGR797/ProjetoAtualizadoGin/entity"
 
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
