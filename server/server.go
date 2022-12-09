@@ -1,9 +1,9 @@
 package server
 
 import (
-	"api-produto/config"
-	"api-produto/service"
 	"log"
+	"product/config"
+	"product/service"
 
 	"github.com/gin-gonic/gin"
 )

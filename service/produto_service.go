@@ -1,8 +1,8 @@
 package service
 
 import (
-	"api-produto/database"
-	"api-produto/entity"
+	"product/database"
+	"product/entity"
 )
 
 type ProdutoServiceInterface interface {

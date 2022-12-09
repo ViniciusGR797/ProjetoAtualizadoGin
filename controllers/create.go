@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"api-produto/entity"
-	"api-produto/service"
+	"product/entity"
+	"product/service"
 
 	"github.com/gin-gonic/gin"
 )

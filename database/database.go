@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"api-produto/config"
+	"product/config"
 )
 
 var (

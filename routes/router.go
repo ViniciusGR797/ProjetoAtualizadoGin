@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"api-produto/controllers"
-	"api-produto/service"
+	"product/controllers"
+	"product/service"
 
 	"github.com/gin-gonic/gin"
 )

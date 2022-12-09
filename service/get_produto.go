@@ -1,8 +1,8 @@
 package service
 
 import (
-	"api-produto/entity"
 	"log"
+	"product/entity"
 )
 
 func (ps *produto_service) GetProduto(ID *int64) *entity.Produto {

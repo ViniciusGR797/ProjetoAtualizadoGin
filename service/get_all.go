@@ -1,8 +1,8 @@
 package service
 
 import (
-	"api-produto/entity"
 	"fmt"
+	"product/entity"
 )
 
 func (ps *produto_service) GetAll() *entity.ListaDeProduto {

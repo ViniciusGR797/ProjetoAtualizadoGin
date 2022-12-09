@@ -1,8 +1,8 @@
 package service
 
 import (
-	"api-produto/entity"
 	"log"
+	"product/entity"
 )
 
 func (ps *produto_service) Update(ID *int64, produto *entity.Produto) int64 {

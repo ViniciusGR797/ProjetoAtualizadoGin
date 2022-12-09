@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"api-produto/service"
+	"product/service"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
