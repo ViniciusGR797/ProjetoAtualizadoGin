@@ -16,7 +16,7 @@ func main() {
 
 	default_conf := &config.Config{}
 
-	if file_config := "db_teste.json"; file_config != "" {
+	if file_config := "test_db.json"; file_config != "" {
 		file, _ := os.ReadFile(file_config)
 		_ = json.Unmarshal(file, &default_conf)
 	}
@@ -25,7 +25,7 @@ func main() {
 
 	dbpool := database.NewDB(conf)
 	if dbpool != nil {
-		log.Print("Você iniciou a conexão com o DB: ", dbpool.GetDB())
+		log.Print("Successfully connected: ", dbpool.GetDB())
 	}
 
 	service := service.NewProdutoService(dbpool)
