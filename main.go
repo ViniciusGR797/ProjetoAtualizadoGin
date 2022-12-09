@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+
 	"product/config"
 	"product/database"
 	"product/routes"
