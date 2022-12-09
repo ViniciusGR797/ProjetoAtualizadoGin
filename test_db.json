@@ -9,6 +9,6 @@
         "db_port": "3306",
         "db_user": "grupob",
         "db_pass": "Rapadura745",
-        "db_name": "grupob"
+        "db_name": "golangdb"
     } 
 }
