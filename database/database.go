@@ -24,12 +24,10 @@ var dbpool = &dabase_pool{}
 
 func NewDB(conf *config.Config) *dabase_pool {
 
-	if conf.DBConfig.DB_DRIVE == "sqlite3" {
-		conf.DBConfig.DB_DSN = fmt.Sprintf(conf.DB_NAME)
-		dbpool = SQLiteConn(conf)
-	} else {
-		panic("Drive não implementado")
-	}
+	// db, err := sql.Open("mysql", "root:<yourMySQLdatabasepassword>@tcp(127.0.0.1:3306)/test")
+
+	conf.DBConfig.DB_DSN = fmt.Sprintf("%v:%v@tcp(%v:%v)/%v", conf.DBConfig.DB_USER, conf.DBConfig.DB_PASS, conf.DBConfig.DB_HOST, conf.DBConfig.DB_PORT, conf.DBConfig.DB_NAME)
+	dbpool = Mysql(conf)
 
 	return dbpool
 }
