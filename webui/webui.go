@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/ViniciusGR797/ProjetoAtualizadoGin/entity"
+	"product/entity"
 
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
@@ -37,12 +37,12 @@ func AuthLogin() http.Handler {
 			return
 		}
 
-		admin := entity.NovoAdmin()
+		admin := entity.NewAdmin()
 		token := entity.Token{
 			Token: entity.USER_TOKEN,
 		}
 
-		if user.Username == admin.Username && user.Senha == admin.Senha {
+		if user.Username == admin.Username && user.Password == admin.Password {
 			err = json.NewEncoder(w).Encode(token)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)

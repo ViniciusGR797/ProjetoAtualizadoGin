@@ -7,7 +7,7 @@ import (
 
 type ProdutoServiceInterface interface {
 	GetProduto(ID *int64) *entity.Produto
-	GetAll() *entity.ListaDeProduto
+	GetAll() *entity.ProdutoList
 	Create(produto *entity.Produto) int64
 	Update(ID *int64, produto *entity.Produto) int64
 	Delete(id *int64) int64

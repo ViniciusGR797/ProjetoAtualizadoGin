@@ -5,17 +5,17 @@ import (
 	"product/entity"
 )
 
-func (ps *produto_service) GetAll() *entity.ListaDeProduto {
+func (ps *produto_service) GetAll() *entity.ProdutoList {
 	database := ps.dbp.GetDB()
 
-	rows, err := database.Query("SELECT id, nome, codigo, valor FROM produto LIMIT 100")
+	rows, err := database.Query("SELECT pro_id, pro_name, pro_code, pro_price FROM product LIMIT 100")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
 	defer rows.Close()
 
-	lista_produtos := &entity.ListaDeProduto{}
+	lista_produtos := &entity.ProdutoList{}
 
 	for rows.Next() {
 		produto := entity.Produto{}
