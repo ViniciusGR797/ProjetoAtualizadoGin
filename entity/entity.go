@@ -17,6 +17,7 @@ type Produto struct {
 	Price     float64 `json:"price"`
 	CreatedAt string  `json:"created_at,omitempty"`
 	UpdatedAt string  `json:"updated_at,omitempty"`
+	//gorm.Model
 }
 
 // Método de produto - retorna string com json do produto ou erro

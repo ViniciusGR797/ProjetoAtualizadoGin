@@ -4,6 +4,7 @@ import (
 	"product/entity"
 	"product/service"
 	"strconv"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,7 +15,7 @@ func Update(c *gin.Context, service service.ProdutoServiceInterface) {
 
 	var produto *entity.Produto
 
-	newId, err := strconv.Atoi(id)
+	newId, err := strconv.Atoi(strings.Replace(id, ":", "", 1))
 	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "ID has to be interger, 400" + err.Error(),

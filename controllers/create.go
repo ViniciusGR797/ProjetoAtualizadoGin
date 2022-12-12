@@ -19,6 +19,8 @@ func Create(c *gin.Context, service service.ProdutoServiceInterface) {
 		return
 	}
 
+	//if(produto.Price < 0)
+
 	id := service.Create(produto)
 	if id == 0 {
 		c.JSON(400, gin.H{
