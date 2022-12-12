@@ -13,6 +13,7 @@ func Delete(c *gin.Context, service service.ProdutoServiceInterface) {
 	id := c.Param("id")
 
 	newId, err := strconv.Atoi(strings.Replace(id, ":", "", 1))
+
 	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "ID has to be interger, 400",
