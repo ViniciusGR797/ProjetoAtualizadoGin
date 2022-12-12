@@ -14,11 +14,6 @@ func GetProduto(c *gin.Context, service service.ProdutoServiceInterface) {
 
 	newId, err := strconv.Atoi(strings.Replace(id, ":", "", 1))
 
-	//strings.Replace(id, ":", "", 1)
-	/*c.JSON(400, gin.H{
-		"teste": "ID antigo é " + id + ", Já newId é " + strconv.Itoa(newId),
-	})*/
-
 	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "ID has to be interger, 400",
@@ -29,7 +24,7 @@ func GetProduto(c *gin.Context, service service.ProdutoServiceInterface) {
 	produto := service.GetProduto(&newId)
 	if produto.ID == 0 {
 		c.JSON(404, gin.H{
-			"error": "produto not found, 404",
+			"error": "product not found, 404",
 		})
 		return
 	}
