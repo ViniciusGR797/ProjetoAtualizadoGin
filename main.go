@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 
@@ -32,23 +33,33 @@ func main() {
 	dbpool := database.NewDB(conf)
 	// Se criou uma conexão com as configurações passadas para o Database - Imprima essa mensagem de sucesso
 	if dbpool != nil {
-		log.Print("Successfully connected: ", dbpool.GetDB())
+		log.Print("Successfully connected")
 	}
 
 	// Cria serviços de um produto (CRUD) com a pool de conexão passada por parâmetro
 	service := service.NewProdutoService(dbpool)
+
+	fmt.Println("\n\n\nPassou3")
+
 	// Cria servidor HTTP com as config passadas por parâmetro
 	serv := server.NewServer(conf)
 
+	fmt.Println("\n\n\nPassou4")
+
 	// Cria rotas passsando o servidor HTTP e os serviços do produto (CRUD)
 	router := routes.ConfigRoutes(serv.SERVER, service)
+
+	fmt.Println("\n\n\nPassou5")
 
 	// Se tiver ativada a interface de usuário, criar as rotas para o front end (WEB UI)
 	if conf.WEB_UI {
 		webui.RegisterUIHandlers(router)
 	}
 
+	fmt.Println("\n\n\nPassou6")
+
 	// Coloca servidor para rodar passando as rotas, servidor HTTP e serviços do produto (CRUD) como parâmetro
 	server.Run(router, serv, service)
 
+	fmt.Println("\n\n\nPassou7")
 }

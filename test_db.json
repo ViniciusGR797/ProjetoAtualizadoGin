@@ -1,5 +1,5 @@
 {
-    "srv_port": "8081",
+    "srv_port": "8080",
     "web_ui": true,
     "open_browser": false,
     "mode": "production",
