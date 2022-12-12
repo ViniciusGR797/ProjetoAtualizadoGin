@@ -9,15 +9,15 @@ import (
 // Estrutura interface para padronizar comportamento de CRUD Produto (tudo que tiver os métodos abaixo do CRUD são serviços de produto)
 type ProdutoServiceInterface interface {
 	// Pega produto em específico passando o id dele como parâmetro
-	GetProduto(ID *int64) *entity.Produto
+	GetProduto(ID *int) *entity.Produto
 	// Pega todos os produtos, logo lista todos os produtos
 	GetAll() *entity.ProdutoList
 	// Cria um novo produto passando seus dados como parâmetro
-	Create(produto *entity.Produto) int64
+	Create(produto *entity.Produto) int
 	// Atualiza dados de um produto, passando id do produto e dados a serem alterados por parâmetro
-	Update(ID *int64, produto *entity.Produto) int64
+	Update(ID *int64, produto *entity.Produto) int
 	// Deletar produto passando id por parâmetro
-	Delete(id *int64) int64
+	Delete(id *int) int
 }
 
 // Estrutura de dados para armazenar a pool de conexão do Database, onde oferece os serviços de CRUD

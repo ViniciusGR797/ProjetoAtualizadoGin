@@ -5,7 +5,7 @@ import (
 	"product/entity"
 )
 
-func (ps *produto_service) GetProduto(ID *int64) *entity.Produto {
+func (ps *produto_service) GetProduto(ID *int) *entity.Produto {
 	database := ps.dbp.GetDB()
 
 	stmt, err := database.Prepare("SELECT id, nome, codigo, valor FROM produto WHERE id = ?")

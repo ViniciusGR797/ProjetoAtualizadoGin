@@ -11,7 +11,7 @@ func GetProduto(c *gin.Context, service service.ProdutoServiceInterface) {
 
 	id := c.Param("id")
 
-	newId, err := strconv.ParseInt(id, 10, 64)
+	newId, err := strconv.Atoi(id)
 	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "ID has to be interger, 400",

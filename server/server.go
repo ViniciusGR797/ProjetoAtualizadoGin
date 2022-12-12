@@ -33,10 +33,6 @@ func Run(router *gin.Engine, server Server, service service.ProdutoServiceInterf
 	// Imprime que servidor HTTP está rodando na porta tal
 	log.Print("Server is running at port: ", server.SRV_PORT)
 
-	/*err := router.Run(":" + server.SRV_PORT)
-	if err != nil {
-		log.Fatal(err)
-	}*/
-
-	log.Fatal(router.Run("0.0.0.0:" + server.SRV_PORT))
+	// Roda servidor HTTP com as rotas e a porta do servidor passadas por parâmetro (caso ser erro dá Fatal erro - fecha o sistema)
+	log.Fatal(router.Run(":" + server.SRV_PORT))
 }

@@ -5,7 +5,7 @@ import (
 	"product/entity"
 )
 
-func (ps *produto_service) Update(ID *int64, produto *entity.Produto) int64 {
+func (ps *produto_service) Update(ID *int, produto *entity.Produto) int {
 	database := ps.dbp.GetDB()
 
 	stmt, err := database.Prepare("UPDATE produto SET nome = ?, codigo = ?, valor = ? WHERE id = ?")
@@ -25,5 +25,5 @@ func (ps *produto_service) Update(ID *int64, produto *entity.Produto) int64 {
 		log.Println(err.Error())
 	}
 
-	return rowsaff
+	return int(rowsaff)
 }

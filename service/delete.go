@@ -4,7 +4,7 @@ import (
 	"log"
 )
 
-func (ps *produto_service) Delete(id *int64) int64 {
+func (ps *produto_service) Delete(id *int) int {
 	database := ps.dbp.GetDB()
 
 	stmt, err := database.Prepare("DELETE FROM produto WHERE id = ?")
@@ -24,6 +24,6 @@ func (ps *produto_service) Delete(id *int64) int64 {
 		log.Println(err.Error())
 	}
 
-	return aff
+	return int(aff)
 
 }

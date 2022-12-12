@@ -5,7 +5,7 @@ import (
 	"product/entity"
 )
 
-func (ps *produto_service) Create(produto *entity.Produto) int64 {
+func (ps *produto_service) Create(produto *entity.Produto) int {
 	database := ps.dbp.GetDB()
 
 	stmt, err := database.Prepare("INSERT INTO produto (nome, codigo, valor) VALUES (?, ?, ?)")
@@ -25,5 +25,5 @@ func (ps *produto_service) Create(produto *entity.Produto) int64 {
 		log.Println(err.Error())
 	}
 
-	return lastId
+	return int(lastId)
 }
