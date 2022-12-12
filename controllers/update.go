@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
+	"github.com/tawesoft/golib/v2/dialog"
 )
 
 func Update(c *gin.Context, service service.ProdutoServiceInterface) {
@@ -28,6 +29,15 @@ func Update(c *gin.Context, service service.ProdutoServiceInterface) {
 		c.JSON(400, gin.H{
 			"error": "cannot bind JSON produto, 400" + err.Error(),
 		})
+		return
+	}
+
+	if produto.Price <= 0.0 {
+		c.JSON(400, gin.H{
+			"error": "invalid value in price",
+		})
+
+		dialog.Alert("Invalid value in price")
 		return
 	}
 
