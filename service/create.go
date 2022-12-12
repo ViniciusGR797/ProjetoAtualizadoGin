@@ -8,7 +8,7 @@ import (
 func (ps *produto_service) Create(produto *entity.Produto) int {
 	database := ps.dbp.GetDB()
 
-	stmt, err := database.Prepare("INSERT INTO produto (nome, codigo, valor) VALUES (?, ?, ?)")
+	stmt, err := database.Prepare("INSERT INTO product (pro_name, pro_code, pro_price) VALUES (?, ?, ?)")
 	if err != nil {
 		log.Println(err.Error())
 	}

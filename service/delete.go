@@ -7,7 +7,7 @@ import (
 func (ps *produto_service) Delete(id *int) int {
 	database := ps.dbp.GetDB()
 
-	stmt, err := database.Prepare("DELETE FROM produto WHERE id = ?")
+	stmt, err := database.Prepare("DELETE FROM product WHERE pro_id = ?")
 	if err != nil {
 		log.Println(err.Error())
 	}

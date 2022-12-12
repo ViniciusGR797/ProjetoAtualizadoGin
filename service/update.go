@@ -8,7 +8,7 @@ import (
 func (ps *produto_service) Update(ID *int, produto *entity.Produto) int {
 	database := ps.dbp.GetDB()
 
-	stmt, err := database.Prepare("UPDATE produto SET nome = ?, codigo = ?, valor = ? WHERE id = ?")
+	stmt, err := database.Prepare("UPDATE product SET pro_name = ?, pro_code = ?, pro_price = ? WHERE pro_id = ?")
 	if err != nil {
 		log.Println(err.Error())
 	}

@@ -3,6 +3,7 @@ package controllers
 import (
 	"product/service"
 	"strconv"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -11,7 +12,13 @@ func GetProduto(c *gin.Context, service service.ProdutoServiceInterface) {
 
 	id := c.Param("id")
 
-	newId, err := strconv.Atoi(id)
+	newId, err := strconv.Atoi(strings.Replace(id, ":", "", 1))
+
+	//strings.Replace(id, ":", "", 1)
+	/*c.JSON(400, gin.H{
+		"teste": "ID antigo é " + id + ", Já newId é " + strconv.Itoa(newId),
+	})*/
+
 	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "ID has to be interger, 400",

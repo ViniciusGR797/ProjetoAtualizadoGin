@@ -8,7 +8,7 @@ import (
 func (ps *produto_service) GetProduto(ID *int) *entity.Produto {
 	database := ps.dbp.GetDB()
 
-	stmt, err := database.Prepare("SELECT id, nome, codigo, valor FROM produto WHERE id = ?")
+	stmt, err := database.Prepare("SELECT pro_id, pro_name, pro_code, pro_price FROM product WHERE pro_id = ?")
 	if err != nil {
 		log.Println(err.Error())
 	}

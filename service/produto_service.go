@@ -15,7 +15,7 @@ type ProdutoServiceInterface interface {
 	// Cria um novo produto passando seus dados como parâmetro
 	Create(produto *entity.Produto) int
 	// Atualiza dados de um produto, passando id do produto e dados a serem alterados por parâmetro
-	Update(ID *int64, produto *entity.Produto) int
+	Update(ID *int, produto *entity.Produto) int
 	// Deletar produto passando id por parâmetro
 	Delete(id *int) int
 }

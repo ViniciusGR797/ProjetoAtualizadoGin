@@ -14,7 +14,7 @@ func Update(c *gin.Context, service service.ProdutoServiceInterface) {
 
 	var produto *entity.Produto
 
-	newId, err := strconv.ParseInt(id, 10, 64)
+	newId, err := strconv.Atoi(id)
 	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "ID has to be interger, 400" + err.Error(),
