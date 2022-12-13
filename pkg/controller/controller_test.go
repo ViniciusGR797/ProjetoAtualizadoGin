@@ -15,9 +15,7 @@ func TestCreate(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			Create(tt.args.c, tt.args.service)
@@ -33,9 +31,7 @@ func TestDelete(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			Delete(tt.args.c, tt.args.service)
@@ -51,9 +47,7 @@ func TestGetAll(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			GetAll(tt.args.c, tt.args.service)
@@ -69,9 +63,7 @@ func TestGetProduto(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			GetProduto(tt.args.c, tt.args.service)
@@ -87,9 +79,7 @@ func TestUpdate(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			Update(tt.args.c, tt.args.service)

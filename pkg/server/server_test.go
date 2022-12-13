@@ -38,9 +38,7 @@ func TestRun(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			Run(tt.args.router, tt.args.server, tt.args.service)

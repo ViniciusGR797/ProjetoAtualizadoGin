@@ -15,9 +15,7 @@ func TestNewProdutoService(t *testing.T) {
 		name string
 		args args
 		want *produto_service
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewProdutoService(tt.args.dabase_pool); !reflect.DeepEqual(got, tt.want) {
@@ -36,9 +34,7 @@ func Test_produto_service_Create(t *testing.T) {
 		ps   *produto_service
 		args args
 		want int
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.ps.Create(tt.args.produto); got != tt.want {
@@ -57,9 +53,7 @@ func Test_produto_service_Delete(t *testing.T) {
 		ps   *produto_service
 		args args
 		want int
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.ps.Delete(tt.args.id); got != tt.want {
@@ -74,9 +68,7 @@ func Test_produto_service_GetAll(t *testing.T) {
 		name string
 		ps   *produto_service
 		want *entity.ProdutoList
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.ps.GetAll(); !reflect.DeepEqual(got, tt.want) {
@@ -95,9 +87,7 @@ func Test_produto_service_GetProduto(t *testing.T) {
 		ps   *produto_service
 		args args
 		want *entity.Produto
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.ps.GetProduto(tt.args.ID); !reflect.DeepEqual(got, tt.want) {
@@ -117,9 +107,7 @@ func Test_produto_service_Update(t *testing.T) {
 		ps   *produto_service
 		args args
 		want int
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.ps.Update(tt.args.ID, tt.args.produto); got != tt.want {

@@ -16,9 +16,7 @@ func TestMysql(t *testing.T) {
 		name string
 		args args
 		want *dabase_pool
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Mysql(tt.args.conf); !reflect.DeepEqual(got, tt.want) {

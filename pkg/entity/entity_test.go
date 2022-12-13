@@ -10,9 +10,7 @@ func TestProduto_String(t *testing.T) {
 		name string
 		p    *Produto
 		want string
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.p.String(); got != tt.want {
@@ -27,9 +25,7 @@ func TestProdutoList_String(t *testing.T) {
 		name string
 		pl   *ProdutoList
 		want string
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.pl.String(); got != tt.want {
@@ -49,9 +45,7 @@ func TestNewProduto(t *testing.T) {
 		name string
 		args args
 		want *Produto
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewProduto(tt.args.nome, tt.args.code, tt.args.price); !reflect.DeepEqual(got, tt.want) {
@@ -65,9 +59,7 @@ func TestNewAdmin(t *testing.T) {
 	tests := []struct {
 		name string
 		want *User
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewAdmin(); !reflect.DeepEqual(got, tt.want) {

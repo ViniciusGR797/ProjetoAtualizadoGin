@@ -15,9 +15,7 @@ func TestNewDB(t *testing.T) {
 		name string
 		args args
 		want *dabase_pool
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewDB(tt.args.conf); !reflect.DeepEqual(got, tt.want) {
@@ -32,9 +30,7 @@ func Test_dabase_pool_Close(t *testing.T) {
 		name    string
 		d       *dabase_pool
 		wantErr bool
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if err := tt.d.Close(); (err != nil) != tt.wantErr {
@@ -49,9 +45,7 @@ func Test_dabase_pool_GetDB(t *testing.T) {
 		name   string
 		d      *dabase_pool
 		wantDB *sql.DB
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if gotDB := tt.d.GetDB(); !reflect.DeepEqual(gotDB, tt.wantDB) {

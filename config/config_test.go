@@ -13,9 +13,7 @@ func TestNewConfig(t *testing.T) {
 		name string
 		args args
 		want *Config
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewConfig(tt.args.config); !reflect.DeepEqual(got, tt.want) {
@@ -29,9 +27,7 @@ func TestDefaultConfig(t *testing.T) {
 	tests := []struct {
 		name string
 		want *Config
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := DefaultConfig(); !reflect.DeepEqual(got, tt.want) {
