@@ -4,8 +4,8 @@ import (
 	"log"
 
 	// Import interno de packages do próprio sistema
-	"product/config"
-	"product/service"
+	"product/internal/config"
+	"product/pkg/service"
 
 	// Import externo do github
 	"github.com/gin-gonic/gin"

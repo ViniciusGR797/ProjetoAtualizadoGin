@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"product/controllers"
-	"product/service"
+	"product/pkg/controller"
+	"product/pkg/service"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,19 +13,19 @@ func ConfigRoutes(router *gin.Engine, service service.ProdutoServiceInterface) *
 		produtos := main.Group("/v1")
 		{
 			produtos.GET("/product/:id", func(c *gin.Context) {
-				controllers.GetProduto(c, service)
+				controller.GetProduto(c, service)
 			})
 			produtos.GET("/products", func(c *gin.Context) {
-				controllers.GetAll(c, service)
+				controller.GetAll(c, service)
 			})
 			produtos.POST("/product", func(c *gin.Context) {
-				controllers.Create(c, service)
+				controller.Create(c, service)
 			})
 			produtos.PUT("/product/:id", func(c *gin.Context) {
-				controllers.Update(c, service)
+				controller.Update(c, service)
 			})
 			produtos.DELETE("/product/:id", func(c *gin.Context) {
-				controllers.Delete(c, service)
+				controller.Delete(c, service)
 			})
 			produtos.POST("/user/login", func(c *gin.Context) {
 				c.Next()

@@ -2,7 +2,7 @@ package service
 
 import (
 	"log"
-	"product/entity"
+	"product/pkg/entity"
 )
 
 func (ps *produto_service) GetProduto(ID *int) *entity.Produto {

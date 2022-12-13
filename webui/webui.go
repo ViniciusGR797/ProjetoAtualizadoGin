@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"product/entity"
+	"product/pkg/entity"
 
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"

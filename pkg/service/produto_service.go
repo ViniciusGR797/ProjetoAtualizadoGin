@@ -2,8 +2,8 @@ package service
 
 import (
 	// Import interno de packages do próprio sistema
-	"product/database"
-	"product/entity"
+	"product/pkg/database"
+	"product/pkg/entity"
 )
 
 // Estrutura interface para padronizar comportamento de CRUD Produto (tudo que tiver os métodos abaixo do CRUD são serviços de produto)

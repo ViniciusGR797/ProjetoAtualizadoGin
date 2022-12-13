@@ -2,7 +2,7 @@ package service
 
 import (
 	"log"
-	"product/entity"
+	"product/pkg/entity"
 )
 
 func (ps *produto_service) Update(ID *int, produto *entity.Produto) int {

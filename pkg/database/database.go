@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	// Import interno de packages do próprio sistema
-	"product/config"
+	"product/internal/config"
 )
 
 // Cria ponteiro como variável global - armazena Database

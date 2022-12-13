@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"product/entity"
+	"product/pkg/entity"
 )
 
 func (ps *produto_service) GetAll() *entity.ProdutoList {
