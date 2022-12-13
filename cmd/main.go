@@ -7,9 +7,9 @@ import (
 	"os"
 
 	// Import interno de packages do próprio sistema
-	"product/internal/config"
-	"product/internal/routes"
+	"product/config"
 	"product/pkg/database"
+	"product/pkg/routes"
 	"product/pkg/server"
 	"product/pkg/service"
 	"product/webui"

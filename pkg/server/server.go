@@ -4,7 +4,7 @@ import (
 	"log"
 
 	// Import interno de packages do próprio sistema
-	"product/internal/config"
+	"product/config"
 	"product/pkg/service"
 
 	// Import externo do github
