@@ -14,7 +14,7 @@ func TestNewProdutoService(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want *produto_service
+		want *Produto_service
 	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -31,7 +31,7 @@ func Test_produto_service_Create(t *testing.T) {
 	}
 	tests := []struct {
 		name string
-		ps   *produto_service
+		ps   *Produto_service
 		args args
 		want int
 	}{}
@@ -50,7 +50,7 @@ func Test_produto_service_Delete(t *testing.T) {
 	}
 	tests := []struct {
 		name string
-		ps   *produto_service
+		ps   *Produto_service
 		args args
 		want int
 	}{}
@@ -66,7 +66,7 @@ func Test_produto_service_Delete(t *testing.T) {
 func Test_produto_service_GetAll(t *testing.T) {
 	tests := []struct {
 		name string
-		ps   *produto_service
+		ps   *Produto_service
 		want *entity.ProdutoList
 	}{}
 	for _, tt := range tests {
@@ -84,7 +84,7 @@ func Test_produto_service_GetProduto(t *testing.T) {
 	}
 	tests := []struct {
 		name string
-		ps   *produto_service
+		ps   *Produto_service
 		args args
 		want *entity.Produto
 	}{}
@@ -104,7 +104,7 @@ func Test_produto_service_Update(t *testing.T) {
 	}
 	tests := []struct {
 		name string
-		ps   *produto_service
+		ps   *Produto_service
 		args args
 		want int
 	}{}

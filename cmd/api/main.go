@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 
@@ -54,6 +53,4 @@ func main() {
 
 	// Coloca servidor para rodar passando as rotas, servidor HTTP e serviços do produto (CRUD) como parâmetro
 	server.Run(router, serv, service)
-
-	fmt.Println("\n\n\nPassou7")
 }

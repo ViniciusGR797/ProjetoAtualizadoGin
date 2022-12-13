@@ -24,18 +24,18 @@ type ProdutoServiceInterface interface {
 }
 
 // Estrutura de dados para armazenar a pool de conexão do Database, onde oferece os serviços de CRUD
-type produto_service struct {
+type Produto_service struct {
 	dbp database.DatabaseInterface
 }
 
 // Cria novo serviço de CRUD para pool de conexão
-func NewProdutoService(dabase_pool database.DatabaseInterface) *produto_service {
-	return &produto_service{
+func NewProdutoService(dabase_pool database.DatabaseInterface) *Produto_service {
+	return &Produto_service{
 		dabase_pool,
 	}
 }
 
-func (ps *produto_service) Create(produto *entity.Produto) int {
+func (ps *Produto_service) Create(produto *entity.Produto) int {
 	database := ps.dbp.GetDB()
 
 	stmt, err := database.Prepare("INSERT INTO product (pro_name, pro_code, pro_price) VALUES (?, ?, ?)")
@@ -58,7 +58,7 @@ func (ps *produto_service) Create(produto *entity.Produto) int {
 	return int(lastId)
 }
 
-func (ps *produto_service) Delete(id *int) int {
+func (ps *Produto_service) Delete(id *int) int {
 	database := ps.dbp.GetDB()
 
 	stmt, err := database.Prepare("DELETE FROM product WHERE pro_id = ?")
@@ -81,10 +81,10 @@ func (ps *produto_service) Delete(id *int) int {
 	return int(aff)
 }
 
-func (ps *produto_service) GetAll() *entity.ProdutoList {
+func (ps *Produto_service) GetAll() *entity.ProdutoList {
 	database := ps.dbp.GetDB()
 
-	rows, err := database.Query("SELECT pro_id, pro_name, pro_code, pro_price FROM product LIMIT 100")
+	rows, err := database.Query("SELECT * FROM product LIMIT 100")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
@@ -96,7 +96,7 @@ func (ps *produto_service) GetAll() *entity.ProdutoList {
 	for rows.Next() {
 		produto := entity.Produto{}
 
-		if err := rows.Scan(&produto.ID, &produto.Name, &produto.Code, &produto.Price); err != nil {
+		if err := rows.Scan(&produto.ID, &produto.Name, &produto.Code, &produto.Price, &produto.CreatedAt, &produto.UpdatedAt); err != nil {
 			fmt.Println(err.Error())
 		} else {
 			lista_produtos.List = append(lista_produtos.List, &produto)
@@ -107,10 +107,10 @@ func (ps *produto_service) GetAll() *entity.ProdutoList {
 	return lista_produtos
 }
 
-func (ps *produto_service) GetProduto(ID *int) *entity.Produto {
+func (ps *Produto_service) GetProduto(ID *int) *entity.Produto {
 	database := ps.dbp.GetDB()
 
-	stmt, err := database.Prepare("SELECT pro_id, pro_name, pro_code, pro_price FROM product WHERE pro_id = ?")
+	stmt, err := database.Prepare("SELECT * FROM product WHERE pro_id = ?")
 	if err != nil {
 		log.Println(err.Error())
 	}
@@ -119,7 +119,7 @@ func (ps *produto_service) GetProduto(ID *int) *entity.Produto {
 
 	produto := entity.Produto{}
 
-	err = stmt.QueryRow(ID).Scan(&produto.ID, &produto.Name, &produto.Code, &produto.Price)
+	err = stmt.QueryRow(ID).Scan(&produto.ID, &produto.Name, &produto.Code, &produto.Price, &produto.CreatedAt, &produto.UpdatedAt)
 	if err != nil {
 		log.Println("error: cannot find produto", err.Error())
 	}
@@ -127,7 +127,7 @@ func (ps *produto_service) GetProduto(ID *int) *entity.Produto {
 	return &produto
 }
 
-func (ps *produto_service) Update(ID *int, produto *entity.Produto) int {
+func (ps *Produto_service) Update(ID *int, produto *entity.Produto) int {
 	database := ps.dbp.GetDB()
 
 	stmt, err := database.Prepare("UPDATE product SET pro_name = ?, pro_code = ?, pro_price = ? WHERE pro_id = ?")
