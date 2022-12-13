@@ -52,35 +52,56 @@ func CreateExcel(list_product *entity.ProdutoList) {
 	f := excelize.NewFile()
 	// Set value of a cell.
 
-	styleHeader, err := f.NewStyle(`{"Border: {"Type":"Continuous", "Color":["#000000"], "Style":2}", "fill":{"type":"pattern","pattern":1,"color":["#1976d2"]},"font":{"bold":true},"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"vertical":"","wrap_text":true}}`)
+	styleHeader, err := f.NewStyle(`{
+									"border: {
+										"type":"right", "color":["#000000"], "style":3}",
+									"font":{
+										"bold":true},
+									"fill":{
+										"type":"pattern","pattern":1,"color":["#1976d2"]},
+									"alignment":{
+										"horizontal":"center","wrap_text":false}}`)
 	if err != nil {
 		return
 	}
 
-	styleBody, err := f.NewStyle(`{"Border: {"Type":"Continuous", "Color":["#000000"], "Style":2}", "fill":{"type":"pattern","pattern":1,"color":["#eeeeee"]},"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"vertical":"","wrap_text":false}}`)
+	/*styleBold, err := f.NewStyle(`{"font":{"bold":true}}`)
 	if err != nil {
 		return
-	}
+	}*/
+
+	/*styleCenter, err := f.NewStyle(`{"alignment":{"horizontal":"center","wrap_text":false}}`)
+	if err != nil {
+		return
+	}*/
+
+	/*stylePrice, err := f.NewStyle(`{"number_format": 353}`)
+	if err != nil {
+		return
+	}*/
 
 	err = f.SetColWidth("Sheet1", "B", "F", 25)
 	if err != nil {
 		return
 	}
-
-	/*err = f.SetPageMargins("Sheet1", "Bottom")
+	err = f.SetCellStyle("Sheet1", "A1", "F1", styleHeader)
+	if err != nil {
+		return
+	}
+	/*err = f.SetRowStyle("Sheet1", 1, 1, styleCenter)
 	if err != nil {
 		return
 	}*/
 
-	err = f.SetRowStyle("Sheet1", 1, 1, styleHeader)
+	/*err = f.SetRowStyle("Sheet1", 2, 1000, styleCenter)
 	if err != nil {
 		return
-	}
+	}*/
 
-	err = f.SetRowStyle("Sheet1", 2, 1000, styleBody)
+	/*err = f.SetColStyle("Sheet1", "D", stylePrice)
 	if err != nil {
 		return
-	}
+	}*/
 
 	f.SetCellValue("Sheet1", "A1", "ID")
 	f.SetCellValue("Sheet1", "B1", "Name")
@@ -90,8 +111,6 @@ func CreateExcel(list_product *entity.ProdutoList) {
 	f.SetCellValue("Sheet1", "F1", "Update at")
 
 	for i, p := range list_product.List {
-		//s, _ :=
-
 		f.SetCellValue("Sheet1", "A"+strconv.Itoa(i+2), p.ID)
 		f.SetCellValue("Sheet1", "B"+strconv.Itoa(i+2), p.Name)
 		f.SetCellValue("Sheet1", "C"+strconv.Itoa(i+2), p.Code)
