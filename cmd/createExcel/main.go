@@ -52,9 +52,7 @@ func CreateExcel(list_product *entity.ProdutoList) {
 	f := excelize.NewFile()
 	// Set value of a cell.
 
-	styleHeader, err := f.NewStyle(`{
-									"border: {
-										"type":"right", "color":["#000000"], "style":3}",
+	styleHeader, err := f.NewStyle(`{									
 									"font":{
 										"bold":true},
 									"fill":{
