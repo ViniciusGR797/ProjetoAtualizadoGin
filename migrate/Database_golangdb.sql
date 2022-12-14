@@ -86,15 +86,6 @@ DELIMITER $$
 	END$$
 DELIMITER ;
 
-DELIMITER $$
-	CREATE TRIGGER Tgr_Log BEFORE INSERT
-	ON product
-	FOR EACH ROW
-	BEGIN
-		INSERT INTO log (log_method, log_description) VALUES ("GET", "product inserted directly into the database");
-	END$$
-DELIMITER ;
-
 INSERT INTO product (pro_id, pro_name, pro_code, pro_price) VALUES (1, "Notebook", "Acer Nitro", 4502.5);
 INSERT INTO product (pro_id, pro_name, pro_code, pro_price) VALUES (2, "Ventilador", "Mondial", 200.0);
 INSERT INTO product (pro_id, pro_name, pro_code, pro_price) VALUES (3, "Faca", "Tramontina", 55.99);
