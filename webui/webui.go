@@ -10,8 +10,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Funciona o front, mas não traz joga as informações no front
-
 func RegisterUIHandlers(router *gin.Engine) {
 
 	router.LoadHTMLGlob("./webui/dist/spa/*.html")
