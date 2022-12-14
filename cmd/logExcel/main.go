@@ -87,14 +87,15 @@ func CreateExcel(list_log *entity.LogList) {
 		Fill: excelize.Fill{
 			Type:    "pattern",
 			Pattern: 1,
-			Color:   []string{"#808080"},
+			Color:   []string{"#FFFFFF"},
 		},
 		Alignment: &excelize.Alignment{
 			Horizontal: "center",
 			WrapText:   true,
 		},
 		Font: &excelize.Font{
-			Color: "#00FFFF",
+			Bold:  true,
+			Color: "#000000",
 		},
 	})
 	if err != nil {
@@ -111,14 +112,15 @@ func CreateExcel(list_log *entity.LogList) {
 		Fill: excelize.Fill{
 			Type:    "pattern",
 			Pattern: 1,
-			Color:   []string{"#808080"},
+			Color:   []string{"#FFFFFF"},
 		},
 		Alignment: &excelize.Alignment{
 			Horizontal: "center",
 			WrapText:   true,
 		},
 		Font: &excelize.Font{
-			Color: "#00FF7F",
+			Bold:  true,
+			Color: "#006400",
 		},
 	})
 	if err != nil {
@@ -135,14 +137,15 @@ func CreateExcel(list_log *entity.LogList) {
 		Fill: excelize.Fill{
 			Type:    "pattern",
 			Pattern: 1,
-			Color:   []string{"#808080"},
+			Color:   []string{"#FFFFFF"},
 		},
 		Alignment: &excelize.Alignment{
 			Horizontal: "center",
 			WrapText:   true,
 		},
 		Font: &excelize.Font{
-			Color: "#EE82EE",
+			Bold:  true,
+			Color: "#003399",
 		},
 	})
 	if err != nil {
@@ -159,13 +162,14 @@ func CreateExcel(list_log *entity.LogList) {
 		Fill: excelize.Fill{
 			Type:    "pattern",
 			Pattern: 1,
-			Color:   []string{"#808080"},
+			Color:   []string{"#FFFFFF"},
 		},
 		Alignment: &excelize.Alignment{
 			Horizontal: "center",
 			WrapText:   true,
 		},
 		Font: &excelize.Font{
+			Bold:  true,
 			Color: "#B22222",
 		},
 	})

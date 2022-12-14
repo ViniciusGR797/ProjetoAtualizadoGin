@@ -87,7 +87,7 @@ func CreateExcel(list_product *entity.ProdutoList) {
 		Fill: excelize.Fill{
 			Type:    "pattern",
 			Pattern: 1,
-			Color:   []string{"#40E0D0"},
+			Color:   []string{"#D3D3D3"},
 		},
 		Alignment: &excelize.Alignment{
 			Horizontal: "center",
