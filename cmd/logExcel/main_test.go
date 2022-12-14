@@ -1,12 +1,15 @@
 package main
 
 import (
-	"product/pkg/entity"
-	"product/pkg/service"
 	"reflect"
 	"testing"
+
+	// Import interno de packages do próprio sistema
+	"product/pkg/entity"
+	"product/pkg/service"
 )
 
+// Teste unitário do método main
 func Test_main(t *testing.T) {
 	tests := []struct {
 		name string
@@ -18,6 +21,7 @@ func Test_main(t *testing.T) {
 	}
 }
 
+// Teste unitário do método ConnectBD
 func TestConnectBD(t *testing.T) {
 	tests := []struct {
 		name string
@@ -32,6 +36,7 @@ func TestConnectBD(t *testing.T) {
 	}
 }
 
+// Teste unitário do método CreateExcel
 func TestCreateExcel(t *testing.T) {
 	type args struct {
 		list_log *entity.LogList

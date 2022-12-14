@@ -2,6 +2,7 @@ package main
 
 import "testing"
 
+// Teste unitário do método main
 func Test_main(t *testing.T) {
 	tests := []struct {
 		name string

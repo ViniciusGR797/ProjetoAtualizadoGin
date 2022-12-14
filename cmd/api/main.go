@@ -14,7 +14,7 @@ import (
 	"product/webui"
 )
 
-// Função principal (primeira executada)
+// Função principal (primeira executada) - chama config para fazer conexão BD, service, server, router e roda servidor http
 func main() {
 	// Atribui o endereço da estrutura de uma configuração padrão do sistema
 	default_conf := &config.Config{}
@@ -37,8 +37,6 @@ func main() {
 
 	// Cria serviços de um produto (CRUD) com a pool de conexão passada por parâmetro
 	service := service.NewProdutoService(dbpool)
-
-	//Daqui em diante aparece os WARNING
 
 	// Cria servidor HTTP com as config passadas por parâmetro
 	serv := server.NewServer(conf)
