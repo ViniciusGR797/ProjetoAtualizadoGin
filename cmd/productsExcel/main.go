@@ -132,4 +132,6 @@ func CreateExcel(list_product *entity.ProdutoList) {
 	if err := f.SaveAs("Products.xlsx"); err != nil {
 		fmt.Println(err)
 	}
+
+	fmt.Println("Excel of products successfully generated")
 }

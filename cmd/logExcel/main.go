@@ -226,4 +226,6 @@ func CreateExcel(list_log *entity.LogList) {
 	if err := f.SaveAs("Logs.xlsx"); err != nil {
 		fmt.Println(err)
 	}
+
+	fmt.Println("Excel of logs successfully generated")
 }
