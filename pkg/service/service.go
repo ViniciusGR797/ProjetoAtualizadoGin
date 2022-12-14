@@ -3,6 +3,7 @@ package service
 import (
 	"fmt"
 	"log"
+	"strconv"
 
 	// Import interno de packages do próprio sistema
 	"product/pkg/database"
@@ -11,6 +12,8 @@ import (
 
 // Estrutura interface para padronizar comportamento de CRUD Produto (tudo que tiver os métodos abaixo do CRUD são serviços de produto)
 type ProdutoServiceInterface interface {
+	// Pega todos os logs, logo lista todos os logs
+	GetLog() *entity.LogList
 	// Pega produto em específico passando o id dele como parâmetro
 	GetProduto(ID *int) *entity.Produto
 	// Pega todos os produtos, logo lista todos os produtos
@@ -35,6 +38,32 @@ func NewProdutoService(dabase_pool database.DatabaseInterface) *Produto_service 
 	}
 }
 
+func (ps *Produto_service) GetLog() *entity.LogList {
+	database := ps.dbp.GetDB()
+
+	rows, err := database.Query("SELECT * FROM log")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	defer rows.Close()
+
+	lista_logs := &entity.LogList{}
+
+	for rows.Next() {
+		log := entity.Log{}
+
+		if err := rows.Scan(&log.ID, &log.Method, &log.Description, &log.Data); err != nil {
+			fmt.Println(err.Error())
+		} else {
+			lista_logs.List = append(lista_logs.List, &log)
+		}
+
+	}
+
+	return lista_logs
+}
+
 func (ps *Produto_service) Create(produto *entity.Produto) int {
 	database := ps.dbp.GetDB()
 
@@ -43,7 +72,13 @@ func (ps *Produto_service) Create(produto *entity.Produto) int {
 		log.Println(err.Error())
 	}
 
+	stmt_log, err := database.Prepare("INSERT INTO log (log_method, log_description) VALUES (?, ?)")
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	defer stmt.Close()
+	defer stmt_log.Close()
 
 	result, err := stmt.Exec(produto.Name, produto.Code, produto.Price)
 	if err != nil {
@@ -51,6 +86,13 @@ func (ps *Produto_service) Create(produto *entity.Produto) int {
 	}
 
 	lastId, err := result.LastInsertId()
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	description := "user '" + "admin" + "' inserted product '" + strconv.Itoa(int(lastId)) + "' from database"
+
+	_, err = stmt_log.Exec("POST", description)
 	if err != nil {
 		log.Println(err.Error())
 	}
@@ -66,7 +108,13 @@ func (ps *Produto_service) Delete(id *int) int {
 		log.Println(err.Error())
 	}
 
+	stmt_log, err := database.Prepare("INSERT INTO log (log_method, log_description) VALUES (?, ?)")
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	defer stmt.Close()
+	defer stmt_log.Close()
 
 	result, err := stmt.Exec(id)
 	if err != nil {
@@ -78,18 +126,31 @@ func (ps *Produto_service) Delete(id *int) int {
 		log.Println(err.Error())
 	}
 
+	description := "user '" + "admin" + "' deleted product '" + strconv.Itoa(*id) + "' from database"
+
+	_, err = stmt_log.Exec("DELETE", description)
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	return int(aff)
 }
 
 func (ps *Produto_service) GetAll() *entity.ProdutoList {
 	database := ps.dbp.GetDB()
 
-	rows, err := database.Query("SELECT * FROM product LIMIT 100")
+	rows, err := database.Query("SELECT * FROM product")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
+	stmt_log, err := database.Prepare("INSERT INTO log (log_method, log_description) VALUES (?, ?)")
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	defer rows.Close()
+	defer stmt_log.Close()
 
 	lista_produtos := &entity.ProdutoList{}
 
@@ -104,6 +165,13 @@ func (ps *Produto_service) GetAll() *entity.ProdutoList {
 
 	}
 
+	description := "user '" + "admin" + "' gets all products from database"
+
+	_, err = stmt_log.Exec("GET", description)
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	return lista_produtos
 }
 
@@ -115,13 +183,26 @@ func (ps *Produto_service) GetProduto(ID *int) *entity.Produto {
 		log.Println(err.Error())
 	}
 
+	stmt_log, err := database.Prepare("INSERT INTO log (log_method, log_description) VALUES (?, ?)")
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	defer stmt.Close()
+	defer stmt_log.Close()
 
 	produto := entity.Produto{}
 
 	err = stmt.QueryRow(ID).Scan(&produto.ID, &produto.Name, &produto.Code, &produto.Price, &produto.CreatedAt, &produto.UpdatedAt)
 	if err != nil {
 		log.Println("error: cannot find produto", err.Error())
+	}
+
+	description := "user '" + "admin" + "' gets product '" + strconv.Itoa(*ID) + "' from database"
+
+	_, err = stmt_log.Exec("GET", description)
+	if err != nil {
+		log.Println(err.Error())
 	}
 
 	return &produto
@@ -135,7 +216,13 @@ func (ps *Produto_service) Update(ID *int, produto *entity.Produto) int {
 		log.Println(err.Error())
 	}
 
+	stmt_log, err := database.Prepare("INSERT INTO log (log_method, log_description) VALUES (?, ?)")
+	if err != nil {
+		log.Println(err.Error())
+	}
+
 	defer stmt.Close()
+	defer stmt_log.Close()
 
 	result, err := stmt.Exec(produto.Name, produto.Code, produto.Price, ID)
 	if err != nil {
@@ -143,6 +230,13 @@ func (ps *Produto_service) Update(ID *int, produto *entity.Produto) int {
 	}
 
 	rowsaff, err := result.RowsAffected()
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	description := "user '" + "admin" + "' updated product '" + strconv.Itoa(*ID) + "' from database"
+
+	_, err = stmt_log.Exec("PUT", description)
 	if err != nil {
 		log.Println(err.Error())
 	}

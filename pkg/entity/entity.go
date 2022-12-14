@@ -9,6 +9,10 @@ type ProdutoInterface interface {
 	String() string
 }
 
+type LogInterface interface {
+	String() string
+}
+
 // Estrutura de dados de Produto
 type Produto struct {
 	ID        int     `json:"id"`
@@ -62,6 +66,7 @@ func NewProduto(nome, code string, price float64) *Produto {
 
 // Estrutura de dados para user - usuário que usará o sistema
 type User struct {
+	ID       int    `json:"id"`
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
@@ -72,6 +77,33 @@ func NewAdmin() *User {
 		Username: "admin",
 		Password: "supersenha",
 	}
+}
+
+// Estrutura de dados de Log
+type Log struct {
+	ID          int    `json:"id"`
+	Method      string `json:"method"`
+	Description string `json:"description"`
+	Data        string `json:"data,omitempty"`
+	//gorm.Model
+}
+
+// Estrutura de dados para lista de Log
+type LogList struct {
+	List []*Log `json:"list"`
+}
+
+// Método de LogList - retorna string com json da lista de log ou erro
+func (ll *LogList) String() string {
+	data, err := json.Marshal(ll)
+
+	if err != nil {
+		log.Println("error to convert LogList to JSON")
+		log.Println(err.Error())
+		return ""
+	}
+
+	return string(data)
 }
 
 // Estrutura de dados para token - key de acesso ao sistema para estar autenticado

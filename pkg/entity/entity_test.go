@@ -68,3 +68,18 @@ func TestNewAdmin(t *testing.T) {
 		})
 	}
 }
+
+func TestLogList_String(t *testing.T) {
+	tests := []struct {
+		name string
+		ll   *LogList
+		want string
+	}{}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := tt.ll.String(); got != tt.want {
+				t.Errorf("LogList.String() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

@@ -12,6 +12,9 @@ func ConfigRoutes(router *gin.Engine, service service.ProdutoServiceInterface) *
 	{
 		produtos := main.Group("/v1")
 		{
+			produtos.GET("/logs", func(c *gin.Context) {
+				controller.GetLog(c, service)
+			})
 			produtos.GET("/product/:id", func(c *gin.Context) {
 				controller.GetProduto(c, service)
 			})

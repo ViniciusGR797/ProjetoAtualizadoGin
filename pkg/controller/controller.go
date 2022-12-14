@@ -10,6 +10,18 @@ import (
 	"github.com/tawesoft/golib/v2/dialog"
 )
 
+func GetLog(c *gin.Context, service service.ProdutoServiceInterface) {
+
+	list := service.GetLog()
+	if len(list.List) == 0 {
+		c.JSON(404, gin.H{
+			"error": "list not found, 404",
+		})
+		return
+	}
+	c.JSON(200, list)
+}
+
 func Create(c *gin.Context, service service.ProdutoServiceInterface) {
 
 	var produto *entity.Produto

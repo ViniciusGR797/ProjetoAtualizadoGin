@@ -25,6 +25,21 @@ func TestNewProdutoService(t *testing.T) {
 	}
 }
 
+func TestProduto_service_GetLog(t *testing.T) {
+	tests := []struct {
+		name string
+		ps   *Produto_service
+		want *entity.LogList
+	}{}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := tt.ps.GetLog(); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("Produto_service.GetLog() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func Test_produto_service_Create(t *testing.T) {
 	type args struct {
 		produto *entity.Produto

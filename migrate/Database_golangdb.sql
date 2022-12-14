@@ -32,16 +32,26 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb3;
 
-
 -- -----------------------------------------------------
 -- Table `golangdb`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `golangdb`.`user` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
-  `use_password` VARCHAR(45) NOT NULL,
+  `user_username` VARCHAR(45) NOT NULL,
+  `user_password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `golangdb`.`log`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `golangdb`.`log` (
+  `log_id` INT NOT NULL AUTO_INCREMENT,
+  `log_method` VARCHAR(15) NOT NULL,
+  `log_description` VARCHAR(150) NOT NULL,
+  `log_data` VARCHAR(50) NULL,
+  PRIMARY KEY (`log_id`))
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -64,6 +74,15 @@ DELIMITER $$
 	BEGIN
 		SET NEW.pro_create_at = NOW();
 		SET NEW.pro_update_at = NOW();
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+	CREATE TRIGGER Tgr_DataAt BEFORE INSERT
+	ON log
+	FOR EACH ROW
+	BEGIN
+		SET NEW.log_data = NOW();
 	END$$
 DELIMITER ;
 

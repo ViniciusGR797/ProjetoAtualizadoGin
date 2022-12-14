@@ -7,6 +7,24 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func TestGetLog(t *testing.T) {
+	type args struct {
+		c       *gin.Context
+		service service.ProdutoServiceInterface
+	}
+	tests := []struct {
+		name string
+		args args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			GetLog(tt.args.c, tt.args.service)
+		})
+	}
+}
+
 func TestCreate(t *testing.T) {
 	type args struct {
 		c       *gin.Context
