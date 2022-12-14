@@ -139,9 +139,9 @@ func DefaultConfig() *Config {
 			DB_DRIVE: "mysql",
 			DB_HOST:  "localhost",
 			DB_PORT:  "3306",
-			DB_USER:  "root",
-			DB_PASS:  "",
-			DB_NAME:  "group_d",
+			DB_USER:  "grupob",
+			DB_PASS:  "Rapadura745",
+			DB_NAME:  "golangdb",
 		},
 		Mode: PRODUCTION,
 	}
