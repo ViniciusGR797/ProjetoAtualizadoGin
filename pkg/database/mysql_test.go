@@ -8,6 +8,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+// Teste unitário do método MySql
 func TestMysql(t *testing.T) {
 	type args struct {
 		conf *config.Config

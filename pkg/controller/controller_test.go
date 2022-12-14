@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Teste unitário do método GetLog
 func TestGetLog(t *testing.T) {
 	type args struct {
 		c       *gin.Context
@@ -25,6 +26,7 @@ func TestGetLog(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Create
 func TestCreate(t *testing.T) {
 	type args struct {
 		c       *gin.Context
@@ -41,6 +43,7 @@ func TestCreate(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Delete
 func TestDelete(t *testing.T) {
 	type args struct {
 		c       *gin.Context
@@ -57,6 +60,7 @@ func TestDelete(t *testing.T) {
 	}
 }
 
+// Teste unitário do método GetAll
 func TestGetAll(t *testing.T) {
 	type args struct {
 		c       *gin.Context
@@ -73,6 +77,7 @@ func TestGetAll(t *testing.T) {
 	}
 }
 
+// Teste unitário do método GetProduto
 func TestGetProduto(t *testing.T) {
 	type args struct {
 		c       *gin.Context
@@ -89,6 +94,7 @@ func TestGetProduto(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Update
 func TestUpdate(t *testing.T) {
 	type args struct {
 		c       *gin.Context

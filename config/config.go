@@ -132,7 +132,7 @@ func NewConfig(config *Config) *Config {
 func DefaultConfig() *Config {
 	// Cria e atribui já valores para a configuração padrão
 	default_config := Config{
-		SRV_PORT:    "9000",
+		SRV_PORT:    "8080",
 		WEB_UI:      true,
 		OpenBrowser: true,
 		DBConfig: DBConfig{

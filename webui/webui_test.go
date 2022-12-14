@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Teste unitário do método RegisterUIHandlers
 func TestRegisterUIHandlers(t *testing.T) {
 	type args struct {
 		router *gin.Engine
@@ -23,6 +24,7 @@ func TestRegisterUIHandlers(t *testing.T) {
 	}
 }
 
+// Teste unitário do método AuthLogin
 func TestAuthLogin(t *testing.T) {
 	tests := []struct {
 		name string

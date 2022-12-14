@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// Teste unitário do método NewDB
 func TestNewDB(t *testing.T) {
 	type args struct {
 		conf *config.Config
@@ -25,6 +26,7 @@ func TestNewDB(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Close
 func Test_dabase_pool_Close(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -40,6 +42,7 @@ func Test_dabase_pool_Close(t *testing.T) {
 	}
 }
 
+// Teste unitário do método GetBD
 func Test_dabase_pool_GetDB(t *testing.T) {
 	tests := []struct {
 		name   string

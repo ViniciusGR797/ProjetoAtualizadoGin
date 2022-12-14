@@ -74,8 +74,8 @@ type User struct {
 // Construtor de User - terá o admin como usuário padrão do sistema
 func NewAdmin() *User {
 	return &User{
-		Username: "admin",
-		Password: "supersenha",
+		Username: "grupob",
+		Password: "grupob",
 	}
 }
 

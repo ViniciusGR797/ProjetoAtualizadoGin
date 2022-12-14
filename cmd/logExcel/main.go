@@ -84,7 +84,7 @@ func CreateExcel(list_log *entity.LogList) {
 			Color: "#FFFFFF",
 		},
 	})
-	//Verifica se teve algum erro ao criar esse novo estilo
+	// Verifica se teve algum erro ao criar esse novo estilo
 	if err != nil {
 		return
 	}
@@ -115,7 +115,7 @@ func CreateExcel(list_log *entity.LogList) {
 			Color: "#000000",
 		},
 	})
-	//Verifica se teve algum erro ao criar esse novo estilo
+	// Verifica se teve algum erro ao criar esse novo estilo
 	if err != nil {
 		return
 	}
@@ -146,7 +146,7 @@ func CreateExcel(list_log *entity.LogList) {
 			Color: "#006400",
 		},
 	})
-	//Verifica se teve algum erro ao criar esse novo estilo
+	// Verifica se teve algum erro ao criar esse novo estilo
 	if err != nil {
 		return
 	}
@@ -177,7 +177,7 @@ func CreateExcel(list_log *entity.LogList) {
 			Color: "#003399",
 		},
 	})
-	//Verifica se teve algum erro ao criar esse novo estilo
+	// Verifica se teve algum erro ao criar esse novo estilo
 	if err != nil {
 		return
 	}
@@ -230,22 +230,30 @@ func CreateExcel(list_log *entity.LogList) {
 		// Switch case para verificar qual method http é para colocar o estilo de formatação correto
 		switch l.Method {
 		case "GET":
+			// Colocando formatação de estilo no corpo com method GET
 			err = f.SetCellStyle("Sheet1", "A"+strconv.Itoa(i+2), "D"+strconv.Itoa(i+2), styleBodyGET)
+			// Verifica se teve algum erro ao colocar estilo
 			if err != nil {
 				return
 			}
 		case "POST":
+			// Colocando formatação de estilo no corpo com method POST
 			err = f.SetCellStyle("Sheet1", "A"+strconv.Itoa(i+2), "D"+strconv.Itoa(i+2), styleBodyPOST)
+			// Verifica se teve algum erro ao colocar estilo
 			if err != nil {
 				return
 			}
 		case "PUT":
+			// Colocando formatação de estilo no corpo com method PUT
 			err = f.SetCellStyle("Sheet1", "A"+strconv.Itoa(i+2), "D"+strconv.Itoa(i+2), styleBodyPUT)
+			// Verifica se teve algum erro ao colocar estilo
 			if err != nil {
 				return
 			}
 		case "DELETE":
+			// Colocando formatação de estilo no corpo com method DELETE
 			err = f.SetCellStyle("Sheet1", "A"+strconv.Itoa(i+2), "D"+strconv.Itoa(i+2), styleBodyDELETE)
+			// Verifica se teve algum erro ao colocar estilo
 			if err != nil {
 				return
 			}
@@ -253,23 +261,30 @@ func CreateExcel(list_log *entity.LogList) {
 
 	}
 
+	// Colocando tamanho na coluna C de 50
 	err = f.SetColWidth("Sheet1", "C", "C", 50)
+	// Verifica se teve algum erro ao colocar tamanho
 	if err != nil {
 		return
 	}
+	// Colocando tamanho na coluna D de 25
 	err = f.SetColWidth("Sheet1", "D", "D", 25)
+	// Verifica se teve algum erro ao colocar tamanho
 	if err != nil {
 		return
 	}
+	// Colocando formatação de estilo no cabeçalho
 	err = f.SetCellStyle("Sheet1", "A1", "D1", styleHeader)
+	// Verifica se teve algum erro ao colocar estilo
 	if err != nil {
 		return
 	}
 
-	// Save spreadsheet by the given path.
+	// Salva a planilha Excel e coloca nome Logs.xlsx
 	if err := f.SaveAs("Logs.xlsx"); err != nil {
 		fmt.Println(err)
 	}
 
+	// Printa que foi gerado o Excel com sucesso
 	fmt.Println("Excel of logs successfully generated")
 }

@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Teste unitário do método ConfigRoutes
 func TestConfigRoutes(t *testing.T) {
 	type args struct {
 		router  *gin.Engine

@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// Teste unitário do método NewProdutoService
 func TestNewProdutoService(t *testing.T) {
 	type args struct {
 		dabase_pool database.DatabaseInterface
@@ -25,6 +26,7 @@ func TestNewProdutoService(t *testing.T) {
 	}
 }
 
+// Teste unitário do método GetLog
 func TestProduto_service_GetLog(t *testing.T) {
 	tests := []struct {
 		name string
@@ -40,6 +42,7 @@ func TestProduto_service_GetLog(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Create
 func Test_produto_service_Create(t *testing.T) {
 	type args struct {
 		produto *entity.Produto
@@ -59,6 +62,7 @@ func Test_produto_service_Create(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Delete
 func Test_produto_service_Delete(t *testing.T) {
 	type args struct {
 		id *int
@@ -78,6 +82,7 @@ func Test_produto_service_Delete(t *testing.T) {
 	}
 }
 
+// Teste unitário do método GetAll
 func Test_produto_service_GetAll(t *testing.T) {
 	tests := []struct {
 		name string
@@ -93,6 +98,7 @@ func Test_produto_service_GetAll(t *testing.T) {
 	}
 }
 
+// Teste unitário do método GetProduto
 func Test_produto_service_GetProduto(t *testing.T) {
 	type args struct {
 		ID *int
@@ -112,6 +118,7 @@ func Test_produto_service_GetProduto(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Update
 func Test_produto_service_Update(t *testing.T) {
 	type args struct {
 		ID      *int

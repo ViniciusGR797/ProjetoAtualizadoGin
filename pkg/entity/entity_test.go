@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// Teste unitário do método String de Product
 func TestProduto_String(t *testing.T) {
 	tests := []struct {
 		name string
@@ -20,6 +21,7 @@ func TestProduto_String(t *testing.T) {
 	}
 }
 
+// Teste unitário do método String de ListProduct
 func TestProdutoList_String(t *testing.T) {
 	tests := []struct {
 		name string
@@ -35,6 +37,7 @@ func TestProdutoList_String(t *testing.T) {
 	}
 }
 
+// Teste unitário do método NewProduct
 func TestNewProduto(t *testing.T) {
 	type args struct {
 		nome  string
@@ -55,6 +58,7 @@ func TestNewProduto(t *testing.T) {
 	}
 }
 
+// Teste unitário do método NewAdmin
 func TestNewAdmin(t *testing.T) {
 	tests := []struct {
 		name string
@@ -69,6 +73,7 @@ func TestNewAdmin(t *testing.T) {
 	}
 }
 
+// Teste unitário do método String de ListLog
 func TestLogList_String(t *testing.T) {
 	tests := []struct {
 		name string

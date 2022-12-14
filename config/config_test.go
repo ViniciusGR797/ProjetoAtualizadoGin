@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// Teste unitário do método NewConfig
 func TestNewConfig(t *testing.T) {
 	type args struct {
 		config *Config
@@ -23,6 +24,7 @@ func TestNewConfig(t *testing.T) {
 	}
 }
 
+// Teste unitário do método DefaultConfig
 func TestDefaultConfig(t *testing.T) {
 	tests := []struct {
 		name string

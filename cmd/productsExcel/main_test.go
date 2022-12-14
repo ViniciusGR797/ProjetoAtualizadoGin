@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// Teste unitário do método main
 func Test_main(t *testing.T) {
 	tests := []struct {
 		name string
@@ -18,6 +19,7 @@ func Test_main(t *testing.T) {
 	}
 }
 
+// Teste unitário do método ConnectBD
 func TestConnectBD(t *testing.T) {
 	tests := []struct {
 		name string
@@ -32,6 +34,7 @@ func TestConnectBD(t *testing.T) {
 	}
 }
 
+// Teste unitário do método CreateExcel
 func TestCreateExcel(t *testing.T) {
 	type args struct {
 		list_product *entity.ProdutoList

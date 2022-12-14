@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Teste unitário do método NewServer
 func TestNewServer(t *testing.T) {
 	type args struct {
 		conf *config.Config
@@ -17,9 +18,7 @@ func TestNewServer(t *testing.T) {
 		name string
 		args args
 		want Server
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewServer(tt.args.conf); !reflect.DeepEqual(got, tt.want) {
@@ -29,6 +28,7 @@ func TestNewServer(t *testing.T) {
 	}
 }
 
+// Teste unitário do método Run
 func TestRun(t *testing.T) {
 	type args struct {
 		router  *gin.Engine
